@@ -8,6 +8,7 @@ const allActionsCollection = require('./models/actionModel')
 const budgetCollection = require('./models/budgetsModel')
 const balanceCollection = require('./models/balanceModel')
 
+mongoose.set("strictQuery", false);
 
 
 const DbURI = 'mongodb+srv://VisualStudioMongoDB-User:vkhElMbH0jhNdxXm@cluster1.zzgjrpk.mongodb.net/MOTcollection-test?retryWrites=true&w=majority';
