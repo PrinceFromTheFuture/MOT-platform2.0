@@ -1,0 +1,103 @@
+
+ <% fifieldsArray.forEach(fifieldsArray => {%> 
+<div class="form-group mb-4">
+    <label for="title">title</label>
+    <input required value= "<%=CurrentAction.title %>" type="text" name="title" id="title" class="form-control">
+</div>
+<div class="form-group mb-4">
+    <label for="description">description</label>
+    <textarea required  name="description" id="description" class="form-control"><%=CurrentAction.description %></textarea>
+</div>
+<div class="form-group mb-4">
+    <label for="date"> Date & Time</label>
+    <input required value= <%= fifieldsArray.dateTimeShow %> type="datetime-local" name="dateTime" id="dateTime" class="form-control">
+</div>
+<div class="form-group mb-4">
+    <label for="amount">amount ₪</label>
+    <input required value= "<%=CurrentAction.amount %>" type="number" name="amount" id="amount" class="form-control">
+</div>
+
+<div>
+    <h5>Type of action</h5>
+    <div class="form-group mb-1">
+        <input onclick="HideBudget()" required type="radio" name="type" id="type" class=" form-check-input" value="income" <%=fifieldsArray.typeIncome %>>
+        <label for="type">income</label>
+    </div>
+
+    <div class="form-group mb-4 ">
+        <input onclick="showBudget()" required type="radio" name="type" id="type" class="form-check-input" value="outcome"<%=fifieldsArray.typeOutcome %>>
+        <label for="type">outcome</label>
+    </div>
+</div>
+
+<div>
+    <h5>Methods of payment</h5>
+    <div class="form-group mb-1 ">
+         <input required type="radio" name="MethodsOfPayment" id="MethodsOfPayment" class="form-check-input" value="Peper Debit" <%=fifieldsArray.peperDebitPayment %> >
+         <label for="MethodsOfPayment">Peper Debit</label>
+    </div>
+
+    <div class="form-group mb-1 ">
+        <input required type="radio" name="MethodsOfPayment" id="MethodsOfPayment" class="form-check-input" value="OneZero Debit" <%=fifieldsArray.oneZeroDebitPayment %>>
+        <label for="MethodsOfPayment">OneZero Debit</label>
+   </div>
+
+   <div class="form-group mb-4 ">
+        <input required type="radio" name="MethodsOfPayment" id="MethodsOfPayment" class="form-check-input" value="Cash" <%=fifieldsArray.cashPayment %>>
+        <label for="MethodsOfPayment">Cash</label>
+    </div>
+</div>
+
+<div id="Budget">
+    <h5>Budget</h5>
+   
+    <div class="form-group mb-1 ">
+         <input type="radio" name="budget" id="budget" class="form-check-input" value="Clothing" <%=fifieldsArray.ClothingTypeBudget %> >
+         <label for="budget">Clothing</label>
+    </div>
+
+    <div class="form-group mb-1 ">
+        <input type="radio" name="budget" id="budget" class="form-check-input" value="Transportation" <%=fifieldsArray.TransportationTypeBudget %>>
+        <label for="budget">Transportation</label>
+   </div>
+
+   <div class="form-group mb-1 ">
+        <input type="radio" name="budget" id="budget" class="form-check-input" value="Spendings" <%=fifieldsArray.SpendingsTypeBudget %>>
+        <label for="budget">Spendings</label>
+    </div>
+
+    <div class="form-group mb-1 ">
+        <input type="radio" name="budget" id="budget" class="form-check-input" value="Enrichment" <%=fifieldsArray.EnrichmentTypeBudget %>>
+        <label for="budget">Enrichment</label>
+    </div> 
+    
+    <div class="form-group mb-1 ">
+        <input type="radio" name="budget" id="budget" class="form-check-input" value="Gifts" <%=fifieldsArray.GiftsTypeBudget %>>
+        <label for="budget">Gifts</label>
+    </div>
+
+    <div class="form-group mb-1 ">
+        <input type="radio" name="budget" id="budget" class="form-check-input" value="UWFE" <%=fifieldsArray.UWFETypeBudget %>>
+        <label for="budget">UWFE</label>
+    </div>
+
+    <div class="form-group mb-4">
+        <input type="radio" name="budget" id="budget" class="form-check-input" value="Savings" <%=fifieldsArray.SavingsBudget %>>
+        <label for="budget">Savings</label>
+    </div>
+</div>
+
+
+<script> //Hides Budget In case of income 
+function HideBudget() {
+  document.getElementById("Budget").style.display = "none";
+}
+function showBudget() {
+  document.getElementById("Budget").style.display = "block";
+}
+</script>
+
+<% }) %>
+
+<a href="/" class="btn btn-secondary">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>
